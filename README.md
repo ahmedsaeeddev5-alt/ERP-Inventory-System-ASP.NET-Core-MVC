@@ -207,33 +207,75 @@ The project follows a layered architecture using:
 
 # 📸 Screenshots
 
-> Add screenshots here.
+## 🔐 Login
 
-### Login
-
-<img src="Screenshots/Login.png" width="900"/>
-
-### Dashboard
-
-<img src="Screenshots/Dashboard.png" width="900"/>
-
-### Products
-
-<img src="Screenshots/Products.png" width="900"/>
-
-### Warehouses
-
-<img src="Screenshots/Warehouses.png" width="900"/>
-
-### Purchase Invoice
-
-<img src="Screenshots/Purchase.png" width="900"/>
-
-### Sales Invoice
-
-<img src="Screenshots/Sales.png" width="900"/>
+<p align="center">
+  <img src="Screenshots/Login.png" width="900"/>
+</p>
 
 ---
+
+## 📊 Dashboard
+
+<p align="center">
+  <img src="Screenshots/Dashboard.png" width="900"/>
+</p>
+
+---
+
+## 📦 Products
+
+<p align="center">
+  <img src="Screenshots/Products.png" width="900"/>
+</p>
+
+---
+
+## 🗂 Categories
+
+<p align="center">
+  <img src="Screenshots/Categories.png" width="900"/>
+</p>
+
+---
+
+## 📏 Units
+
+<p align="center">
+  <img src="Screenshots/Units.png" width="900"/>
+</p>
+
+---
+
+## 🏬 Warehouses
+
+<p align="center">
+  <img src="Screenshots/Warehouses.png" width="900"/>
+</p>
+
+---
+
+## 📥 Purchase Invoice
+
+<p align="center">
+  <img src="Screenshots/PurchaseInvoice.png" width="900"/>
+</p>
+
+---
+
+## 📤 Sales Invoice
+
+<p align="center">
+  <img src="Screenshots/SalesInvoice.png" width="900"/>
+</p>
+
+---
+
+## 📈 Inventory
+
+<p align="center">
+  <img src="Screenshots/Inventory.png" width="900"/>
+</p>
 
 # ⚙️ Installation
 
