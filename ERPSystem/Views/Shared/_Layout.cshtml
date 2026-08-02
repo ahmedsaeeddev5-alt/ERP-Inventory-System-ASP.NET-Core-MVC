@@ -1,0 +1,369 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - ERP System</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand fw-bold"
+               asp-controller="Home"
+               asp-action="Index">
+
+                <i class="bi bi-building"></i>
+                ERP System
+
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse"
+                 id="navbarNav">
+
+                <ul class="navbar-nav me-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           asp-controller="Dashboard"
+                           asp-action="Index">
+
+                            <i class="bi bi-house-door"></i>
+                            Dashboard
+
+                        </a>
+                    </li>
+
+                    <!-- Master Data -->
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           data-bs-toggle="dropdown">
+
+                            <i class="bi bi-database"></i>
+                            Master Data
+
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+    <li>
+
+        <a class="dropdown-item"
+           asp-controller="Categories"
+           asp-action="Index">
+
+            <i class="bi bi-tags"></i>
+            Categories
+
+        </a>
+
+    </li>
+
+    <li>
+
+        <a class="dropdown-item"
+           asp-controller="Units"
+           asp-action="Index">
+
+            <i class="bi bi-rulers"></i>
+            Units
+
+        </a>
+
+    </li>
+
+    <li>
+
+        <a class="dropdown-item"
+           asp-controller="Products"
+           asp-action="Index">
+
+            <i class="bi bi-box-seam"></i>
+            Products
+
+        </a>
+
+    </li>
+
+    <li>
+
+        <a class="dropdown-item"
+           asp-controller="Warehouse"
+           asp-action="Index">
+
+            <i class="bi bi-buildings"></i>
+            Warehouses
+
+        </a>
+
+    </li>
+
+    <li><hr class="dropdown-divider"></li>
+
+   <li>
+
+    <a class="dropdown-item"
+       asp-controller="Supplier"
+       asp-action="Index">
+
+        <i class="bi bi-truck"></i>
+        Suppliers
+
+    </a>
+
+</li>
+
+   <li>
+    <a class="dropdown-item"
+       asp-controller="Customers"
+       asp-action="Index">
+
+        <i class="bi bi-people"></i>
+        Customers
+
+    </a>
+</li>
+
+</ul>
+
+                    <!-- Transactions -->
+
+                      <li class="nav-item dropdown">
+
+    <a class="nav-link dropdown-toggle"
+       href="#"
+       data-bs-toggle="dropdown">
+
+        <i class="bi bi-arrow-left-right"></i>
+        Transactions
+
+    </a>
+
+    <ul class="dropdown-menu">
+
+        <li>
+            <a class="dropdown-item"
+               asp-controller="Stock"
+               asp-action="Index">
+
+                <i class="bi bi-boxes"></i>
+                Stock
+
+            </a>
+        </li>
+
+        <li><hr class="dropdown-divider"></li>
+
+        <li>
+            <a class="dropdown-item"
+               asp-controller="PurchaseInvoice"
+               asp-action="Index">
+
+                <i class="bi bi-cart-plus"></i>
+                Purchase Invoices
+
+            </a>
+        </li>
+
+        <li>
+            <a class="dropdown-item"
+               asp-controller="SalesInvoice"
+               asp-action="Index">
+
+                <i class="bi bi-cart-check"></i>
+                Sales Invoices
+
+            </a>
+        </li>
+
+    </ul>
+
+</li>
+
+
+                    <!-- Reports -->
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           data-bs-toggle="dropdown">
+
+                            <i class="bi bi-bar-chart"></i>
+                            Reports
+
+                        </a>
+
+                            ```html
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a asp-controller="Reports"
+                                       asp-action="Inventory"
+                                       class="dropdown-item">
+                                        Inventory Report
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a asp-controller="Reports"
+                                       asp-action="Sales"
+                                       class="dropdown-item">
+                                        Sales Report
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a asp-controller="Reports"
+                                       asp-action="PurchaseReport"
+                                       class="dropdown-item">
+                                        Purchase Report
+                                    </a>
+                                </li>
+
+                            </ul>
+                            ```
+
+
+                    </li>
+
+                    <!-- Administration -->
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           data-bs-toggle="dropdown">
+
+                            <i class="bi bi-gear"></i>
+                            Administration
+
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                           <li>
+            <a class="dropdown-item"
+               asp-controller="Roles"
+               asp-action="Index">
+
+                <i class="bi bi-cart-check"></i>
+               User Roles
+
+            </a>
+        </li>
+
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+                <!-- Right Side -->
+                
+
+<ul class="navbar-nav ms-auto">
+
+    <partial name="~/Views/Shared/_LoginPartial.cshtml" />
+
+    <li class="nav-item">
+        <span class="nav-link text-light">
+            <i class="bi bi-calendar3"></i>
+            @DateTime.Now.ToString("dd MMM yyyy")
+        </span>
+    </li>
+
+</ul>
+
+            </div>
+
+        </div>
+           
+    </nav>
+
+    <!-- Main -->
+
+    <main class="container-fluid mt-4 mb-5">
+
+        @RenderBody()
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="border-top bg-light py-3 mt-auto">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <small class="text-muted">
+
+                        © @DateTime.Now.Year ERP System
+
+                    </small>
+
+                </div>
+
+                <div class="col-md-6 text-end">
+
+                    <small class="text-muted">
+
+                        ASP.NET Core MVC | SQL Server | EF Core
+
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>
+

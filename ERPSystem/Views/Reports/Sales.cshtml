@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ERPSystem.ViewModels.Reports.SalesReportVM>
+
+<h2>Sales Report</h2>
+
+<table class="table table-bordered">
+
+    <thead class="table-dark">
+
+        <tr>
+            <th>Invoice</th>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total</th>
+        </tr>
+
+    </thead>
+
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.InvoiceNumber</td>
+
+                <td>@item.InvoiceDate.ToShortDateString()</td>
+
+                <td>@item.CustomerName</td>
+
+                <td>@item.ProductName</td>
+
+                <td>@item.Quantity</td>
+
+                <td>@item.UnitPrice.ToString("N2")</td>
+
+                <td>@item.Total.ToString("N2")</td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

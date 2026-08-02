@@ -1,0 +1,30 @@
+﻿@model ERPSystem.Models.Unit
+
+<h3>Delete Unit</h3>
+
+<h4>Are you sure?</h4>
+
+<div class="mb-3">
+
+    <label>Name</label>
+
+    <input asp-for="Name"
+           class="form-control"
+           readonly />
+
+</div>
+
+<form asp-action="Delete">
+
+    <input asp-for="Id" type="hidden" />
+
+    <button class="btn btn-danger">
+        Delete
+    </button>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        Cancel
+    </a>
+
+</form>

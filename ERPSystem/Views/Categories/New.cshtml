@@ -1,0 +1,68 @@
+﻿@model ERPSystem.Models.Category
+
+@{
+    ViewData["Title"] = "New Category";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header">
+
+            <h3>Create Category</h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <form asp-action="New" method="post">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="mb-3">
+
+                    <label asp-for="Name"></label>
+
+                    <input asp-for="Name" class="form-control"/>
+
+                    <span asp-validation-for="Name" class="text-danger"></span>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="Description"></label>
+
+                    <textarea asp-for="Description"
+                              class="form-control">
+                    </textarea>
+
+                </div>
+
+                <button type="submit"
+                        class="btn btn-success">
+
+                    Save
+
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-secondary">
+
+                    Cancel
+
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,131 @@
+﻿@model IEnumerable<ERPSystem.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h2 class="mb-3">Products</h2>
+
+@if (TempData["SuccessData"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessData"]
+    </div>
+}
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <form asp-action="Index" method="get">
+            <div class="input-group">
+                <input type="text"
+                       name="search"
+                       value="@ViewBag.Search"
+                       class="form-control"
+                       placeholder="Search by Name or Code" />
+
+                <button class="btn btn-primary" type="submit">
+                    Search
+                </button>
+
+                <a asp-action="Index" class="btn btn-secondary">
+                    Reset
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-6 text-end">
+        <a asp-action="New" class="btn btn-success">
+            Add Product
+        </a>
+    </div>
+</div>
+
+<table class="table table-bordered table-hover table-striped align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Barcode</th>
+            <th>Purchase Price</th>
+            <th>Sale Price</th>
+            <th>Category</th>
+            <th>Unit</th>
+            <th>Status</th>
+            <th width="220">Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+@foreach (var item in Model)
+{
+    <tr>
+
+        <td>
+            @if (!string.IsNullOrEmpty(item.imagesrc))
+            {
+                <img src="@item.imagesrc"
+                     width="80"
+                     height="80"
+                     class="rounded border" />
+            }
+            else
+            {
+                <span>No Image</span>
+            }
+        </td>
+
+        <td>@item.Name</td>
+
+        <td>@item.Code</td>
+
+        <td>@item.Barcode</td>
+
+        <td>@item.PurchasePrice.ToString("0.00")</td>
+
+        <td>@item.SalePrice.ToString("0.00")</td>
+
+        <td>@item.Category?.Name</td>
+
+        <td>@item.Unit?.Name</td>
+
+        <td>
+            @if (item.IsActive)
+            {
+                <span class="badge bg-success">Active</span>
+            }
+            else
+            {
+                <span class="badge bg-danger">Inactive</span>
+            }
+        </td>
+
+        <td>
+
+            <a asp-action="Details"
+               asp-route-id="@item.Id"
+               class="btn btn-info btn-sm">
+                Details
+            </a>
+
+            <a asp-action="Edit"
+               asp-route-id="@item.Id"
+               class="btn btn-warning btn-sm">
+                Edit
+            </a>
+
+            <a asp-action="Delete"
+               asp-route-id="@item.Id"
+               class="btn btn-danger btn-sm">
+                Delete
+            </a>
+
+        </td>
+
+    </tr>
+}
+
+    </tbody>
+</table>

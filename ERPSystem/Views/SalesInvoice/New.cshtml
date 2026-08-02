@@ -1,0 +1,170 @@
+﻿@model ERPSystem.ViewModels.SalesInvoiceVM
+
+@{
+    ViewData["Title"] = "New Sales Invoice";
+}
+
+
+<div class="container mt-4">
+
+    <h2>New Sales Invoice</h2>
+
+    <hr />
+
+
+    <form asp-action="New" method="post">
+
+
+        <div asp-validation-summary="ModelOnly"
+             class="text-danger"></div>
+
+
+
+        <!-- Invoice Number -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Invoice Number
+            </label>
+
+            <input asp-for="Invoice.InvoiceNumber"
+                   class="form-control" />
+
+        </div>
+
+
+
+        <!-- Customer -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Customer
+            </label>
+
+
+            <select asp-for="Invoice.CustomerId"
+                    class="form-select">
+
+                <option value="">
+                    -- Select Customer --
+                </option>
+
+
+                @foreach (var customer in Model.Customers)
+                {
+                    <option value="@customer.Id">
+                        @customer.Name
+                    </option>
+                }
+
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+    <label class="form-label">Warehouse</label>
+
+    <select asp-for="Invoice.WarehouseId" class="form-select">
+        <option value="">-- Select Warehouse --</option>
+
+        @foreach (var warehouse in Model.Warehouses)
+        {
+            <option value="@warehouse.Id">
+                @warehouse.Name
+            </option>
+        }
+    </select>
+
+    <span asp-validation-for="Invoice.WarehouseId" class="text-danger"></span>
+</div>
+
+
+        <!-- Date -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Date
+            </label>
+
+
+            <input asp-for="Invoice.InvoiceDate"
+                   type="date"
+                   class="form-control" />
+
+        </div>
+
+
+
+        <h4>Products</h4>
+
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Select</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @for (int i = 0; i < Model.Items.Count; i++)
+        {
+            var product = Model.Products.First(x => x.Id == Model.Items[i].ProductId);
+
+            <tr>
+                <td>
+                    <input asp-for="Items[i].Selected" />
+
+                    <input asp-for="Items[i].ProductId" type="hidden" />
+                    <input asp-for="Items[i].UnitPrice" type="hidden" />
+                </td>
+
+                <td>
+                    @product.Name
+                </td>
+
+                <td>
+                    <input asp-for="Items[i].Quantity"
+                           class="form-control"
+                           min="1" />
+                </td>
+
+                <td>
+                    @product.SalePrice
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+        <button type="submit"
+                class="btn btn-success">
+
+            Save Invoice
+
+        </button>
+
+
+        <a asp-action="Index"
+           class="btn btn-secondary">
+
+            Back
+
+        </a>
+
+
+    </form>
+
+
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

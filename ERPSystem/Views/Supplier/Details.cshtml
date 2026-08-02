@@ -1,0 +1,29 @@
+﻿@model ERPSystem.Models.Supplier
+
+<h2>Supplier Details</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <td>@Model.Name</td>
+    </tr>
+
+    <tr>
+        <th>Phone</th>
+        <td>@Model.Phone</td>
+    </tr>
+
+    <tr>
+        <th>Email</th>
+        <td>@Model.Email</td>
+    </tr>
+
+    <tr>
+        <th>Address</th>
+        <td>@Model.Address</td>
+    </tr>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">
+    Back
+</a>

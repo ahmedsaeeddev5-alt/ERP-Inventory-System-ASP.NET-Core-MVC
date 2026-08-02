@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ERPSystem.Models.Unit>
+
+@{
+    ViewData["Title"] = "Units";
+}
+
+<h2>Units</h2>
+
+  @if (TempData["SuccessData"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    @TempData["SuccessData"]
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="alert">
+                    </button>
+                </div>
+            }
+
+<form asp-action="Index" method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text"
+               name="search"
+               value="@ViewBag.Search"
+               class="form-control"
+               placeholder="Search Unit..." />
+
+        <button class="btn btn-primary" type="submit">
+            Search
+        </button>
+    </div>
+</form>
+
+<p>
+    <a asp-action="New" class="btn btn-success">
+        New Unit
+    </a>
+</p>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th width="220">Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.Name</td>
+
+                <td>
+
+                    <a asp-action="Details"
+                       asp-route-id="@item.Id"
+                       class="btn btn-info btn-sm">
+                        Details
+                    </a>
+
+                    <a asp-action="Edit"
+                       asp-route-id="@item.Id"
+                       class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@item.Id"
+                       class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>

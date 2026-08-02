@@ -1,0 +1,32 @@
+﻿@model ERPSystem.Models.Unit
+
+<h2>New Unit</h2>
+
+<form asp-action="New" method="post">
+
+    <div class="mb-3">
+
+        <label asp-for="Name"></label>
+
+        <input asp-for="Name" class="form-control" />
+
+        <span asp-validation-for="Name"
+              class="text-danger"></span>
+
+    </div>
+
+    <button class="btn btn-success">
+        Save
+    </button>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        Back
+    </a>
+
+</form>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

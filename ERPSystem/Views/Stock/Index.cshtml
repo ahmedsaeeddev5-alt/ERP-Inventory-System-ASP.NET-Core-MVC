@@ -1,0 +1,85 @@
+﻿@model IEnumerable<ERPSystem.Models.Stock>
+
+@{
+    ViewData["Title"] = "Stock";
+}
+
+<h2>Current Stock</h2>
+
+@if (TempData["SuccessData"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessData"]
+    </div>
+}
+
+<div class="row mb-3">
+
+    <div class="col-md-6">
+
+        <form method="get">
+
+            <div class="input-group">
+
+                <input type="text"
+                       name="search"
+                       value="@ViewBag.Search"
+                       class="form-control"
+                       placeholder="Search Product or Warehouse..." />
+
+                <button class="btn btn-primary" type="submit">
+                    Search
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="col-md-6 text-end">
+
+        <a asp-action="Create"
+           class="btn btn-success">
+
+            <i class="bi bi-plus-circle"></i>
+            Opening Stock
+
+        </a>
+
+    </div>
+
+</div>
+
+<table class="table table-bordered table-hover">
+
+    <thead class="table-dark">
+
+        <tr>
+
+            <th>Product</th>
+            <th>Warehouse</th>
+            <th>Quantity</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.Product.Name</td>
+
+                <td>@item.Warehouse.Name</td>
+
+                <td>@item.Quantity</td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ERPSystem.ViewModels.Reports.InventoryReportVM>
+
+@{
+    ViewData["Title"] = "Inventory Report";
+}
+
+<h2 class="mb-4">Inventory Report</h2>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Unit</th>
+            <th>Warehouse</th>
+            <th>Quantity</th>
+            <th>Purchase Price</th>
+            <th>Total Value</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.ProductName</td>
+                <td>@item.CategoryName</td>
+                <td>@item.UnitName</td>
+                <td>@item.WarehouseName</td>
+
+                <td>@item.Quantity</td>
+
+                <td>@item.PurchasePrice.ToString("N2")</td>
+
+                <td>@item.TotalValue.ToString("N2")</td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

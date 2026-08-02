@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ERPSystem.Models.Supplier>
+
+@{
+    ViewData["Title"] = "Suppliers";
+}
+
+<h2>Suppliers</h2>
+
+<p>
+    <a asp-action="New" class="btn btn-primary">Add Supplier</a>
+</p>
+
+<form method="get" asp-action="Index" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="search" class="form-control"
+               placeholder="Search by Name, Phone or Email"
+               value="@Context.Request.Query["search"]" />
+
+        <button type="submit" class="btn btn-outline-primary">
+            Search
+        </button>
+    </div>
+</form>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th width="220">Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Phone</td>
+            <td>@item.Email</td>
+            <td>@item.Address</td>
+
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id"
+                   class="btn btn-info btn-sm">
+                    Details
+                </a>
+
+                <a asp-action="Edit" asp-route-id="@item.Id"
+                   class="btn btn-warning btn-sm">
+                    Edit
+                </a>
+
+                <a asp-action="Delete" asp-route-id="@item.Id"
+                   class="btn btn-danger btn-sm">
+                    Delete
+                </a>
+            </td>
+
+        </tr>
+    }
+
+    </tbody>
+</table>
