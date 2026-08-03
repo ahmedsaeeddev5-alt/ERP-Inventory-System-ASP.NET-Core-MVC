@@ -239,14 +239,6 @@ The project follows a layered architecture using:
 
 ---
 
-## 📏 Units
-
-<p align="center">
-  <img src="Screenshots/Units.png" width="900"/>
-</p>
-
----
-
 ## 🏬 Warehouses
 
 <p align="center">
